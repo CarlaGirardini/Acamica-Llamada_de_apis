@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+.textoInicial {
+    clear: both;
+}
+body{
+    background-color: #003f5c;
+}
+
+.descripcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genero{
+    display: flex;
+    padding: 5px;
+    height: 50px;
+    margin: 10px;
+    background-color: #bc4873;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.genero:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.resultados{
+    background-color: #472b62;
+    width: 50%;
+    height: 20px;
+}

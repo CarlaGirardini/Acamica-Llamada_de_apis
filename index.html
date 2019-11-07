@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carla Astral</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+        <p class="textoInicial"> ¡¡Encontrá a tu persona ideal!! Seleccioná un género:</p>
+    <div class="descripcion">
+        <div class="genero" id="hombre">Hombre</div>
+        <div class="genero" id="mujer">Mujer</div>
+        <div class="genero" id="otro">Sorprendeme</div>
+    </div>
+    <div class='resultado'>
+        <h2>Tu persona ideal</h2>
+        <p>Se llama:</p>
+        <div id="name" class="resultados"></div>
+        <div id="surname" class="resultados"></div>
+        <p>Es:</p>
+        <div id="gender" class="resultados"></div>
+        <p>Vive en:</p>
+        <div id="region" class="resultados"></div>
+    </div>
+    <script>
+        var hombre = document.getElementById('hombre');
+        var mujer = document.getElementById('mujer');
+        var otro = document.getElementById('otro');
+
+        const http = new XMLHttpRequest();
+        var generoElegido;
+        var name = document.getElementById('name');
+        var surname = document.getElementById('surname');
+        var gender = document.getElementById('gender');
+        var region = document.getElementById('region');
+
+        hombre.addEventListener('click', ()=>inicializar('?gender=male'));
+        mujer.addEventListener('click', ()=>inicializar('?gender=female'));
+        otro.addEventListener('click',  ()=>inicializar(''));
+
+        function inicializar(generoElegido){
+            const url = `https://uinames.com/api/${generoElegido}`;
+            http.open('GET',url);
+            http.send();
+            
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    console.log('respuesta', http.responseText);
+                    const res = JSON.parse(this.responseText);
+                    name.innerText = res.name;
+                    console.log('res.name', res.name);
+                    surname.innerText = res.surname;
+                    gender.innerText = res.gender;
+                    region.innerText = res.region;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
