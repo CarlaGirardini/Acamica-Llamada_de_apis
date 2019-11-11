@@ -2,10 +2,25 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
+    margin: 0;
 }
-.textoInicial {
-    clear: both;
+
+body{
+    text-align: center;
 }
+
+.header{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    height: 70vh;
+}
+
 body{
     background-color: #003f5c;
 }
@@ -31,8 +46,39 @@ body{
     transform: scale(1.05);
 }
 
+.datos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .resultados{
     background-color: #472b62;
-    width: 50%;
-    height: 20px;
+    width: 25%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+/* Acá hago el cargador */
+.cargando{
+    /* visibility: hidden; */
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60vh;
+    background-color: #472b62;
+    color: white;
+    top: 30vh;
+    left: 20%;
+    border-radius: 5px;
+}
+.hidden{
+    visibility: hidden;
 }
